@@ -1,0 +1,11 @@
+.output li{
+    display: inline;
+}
+
+.output-item {
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    border-style: solid;
+    display: inline-flex;
+}
