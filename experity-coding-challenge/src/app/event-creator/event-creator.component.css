@@ -1,0 +1,25 @@
+/* .example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+} */
+
+.form-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.submit-btn {
+  margin-right: 5px;
+}
+
+.clear-btn {
+  margin-left: 5px;
+}
+
+.btn-container {
+  margin-top: 10px;
+}
