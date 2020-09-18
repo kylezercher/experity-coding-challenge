@@ -6,6 +6,11 @@ import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -13,12 +18,20 @@ import {MatCardModule} from '@angular/material/card';
   declarations: [LayoutComponent, HeaderComponent, FooterComponent, PageNotFoundComponent],
   imports: [
     CommonModule,
-    MatSelectModule
+    RouterModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSnackBarModule
   ],
   exports:[
     LayoutComponent,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

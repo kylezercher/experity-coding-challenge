@@ -17,7 +17,7 @@ export class Rule implements IRule {
         if ((number % this.mutipleOfValue) === 0) {
             return true;
         }
-        else{
+        else {
             return false;
         }
     }

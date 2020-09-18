@@ -1,1 +1,79 @@
-<p>event-creator works!</p>
+<mat-card>
+  <form [formGroup]="eventTypeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-full-width">
+      <mat-label>Event Type</mat-label>
+      <input matInput formControlName="displayValue" required>
+    </mat-form-field>
+
+    <table class="form-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="form-full-width">
+            <mat-label>Starting Value</mat-label>
+            <input matInput formControlName="startingValue" type="number">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="form-full-width">
+            <mat-label>Ending Value</mat-label>
+            <input matInput formControlName="endingValue" type="number" required>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <table class="form-full-width" cellspacing="0" formGroupName="rule1">
+      <tr>
+        <td><label>Rule 1:</label></td>
+        <td>
+          <mat-form-field class="form-full-width">
+            <mat-label>Multiple Of Value</mat-label>
+            <input matInput placeholder="3" type="number" formControlName="mutipleOfValue" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="form-full-width">
+            <mat-label>Output Value</mat-label>
+            <input matInput placeholder="Patient" formControlName="outputValue" required>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <table class="form-full-width" cellspacing="0" formGroupName="rule2">
+      <tr>
+        <td><label>Rule 2:</label></td>
+        <td>
+          <mat-form-field class="form-full-width">
+            <mat-label>Multiple Of Value</mat-label>
+            <input matInput placeholder="5" type="number" formControlName="mutipleOfValue" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="form-full-width">
+            <mat-label>Output Value</mat-label>
+            <input matInput placeholder="Patient" formControlName="outputValue" required>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <table class="form-full-width" cellspacing="0" formGroupName="rule2">
+      <tr>
+        <td>
+          <mat-label>Rule 3:</mat-label>
+        </td>
+        <td><label>Multiple of Values:</label>
+          {{eventTypeForm.value['rule1']['mutipleOfValue']}},{{eventTypeForm.value['rule2']['mutipleOfValue']}}</td>
+        <td><label>Output Value:</label>
+          {{eventTypeForm.value['rule1']['outputValue'] + ' ' + eventTypeForm.value['rule2']['outputValue']}}</td>
+      </tr>
+    </table>
+
+    <div class="btn-container">
+      <button mat-raised-button class="submit-btn" color="primary" type="submit"
+        [disabled]="!eventTypeForm.valid">Submit</button>
+      <button mat-raised-button class="clear-btn" color="primary" [disabled]="eventTypeForm.untouched" (click)="eventTypeForm.reset({})">Clear Form</button>
+    </div>
+  </form>
+</mat-card>

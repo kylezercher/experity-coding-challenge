@@ -1,14 +1,15 @@
 <mat-card>
-    <mat-select placeholder="Events" [(value)]="selectedEvent">
-        <mat-option *ngFor="let event of eventSelection" [value]="event">
-            {{event.displayValue}}
-        </mat-option>
-    </mat-select>
-    <div *ngIf="selectedEvent">
-        <ul class="output-list">
-            <li *ngFor="let item of selectedEvent.output" class="output-item">
-                <span>{{item}}</span>
-            </li>
-        </ul>
-    </div>
+  <mat-select placeholder="Events" [(value)]="selectedEvent">
+    <mat-option *ngFor="let event of eventSelection" [value]="event">
+      {{event.displayValue}}
+    </mat-option>
+  </mat-select>
+  <div *ngIf="selectedEvent">
+    <ul class="output-list">
+      <li *ngFor="let item of selectedEvent.output" class="output-item">
+        <span>{{item}}</span>
+      </li>
+    </ul>
+    <button mat-raised-button (click)=uploadEventType(selectedEvent)>Upload</button>
+  </div>
 </mat-card>

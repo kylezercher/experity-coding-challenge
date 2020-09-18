@@ -1,5 +1,11 @@
 <div class="content-container">
   <app-header headerText="Experity Code Challenge"></app-header>
+  <mat-toolbar>
+    <ul>
+        <li><a mat-button [routerLink]="['event-submit']" routerLinkActive="active" id="submitEventTypeId">Submit Event Type</a></li>
+        <li><a mat-button [routerLink]="['event-creator']" routerLinkActive="active" id="createEventTypeId">Create New Event Type</a></li>
+      </ul>
+  </mat-toolbar>
   <div class="page-content">
     <ng-content></ng-content>
   </div>

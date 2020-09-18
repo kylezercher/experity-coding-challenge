@@ -1,31 +1,36 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixtureAutoDetect } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { SharedModule } from '../shared.module';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
-  });
+  let h1: HTMLElement;
 
   beforeEach(() => {
+    TestBed.configureTestingModule(
+      {declarations: [HeaderComponent],
+        imports:[SharedModule],
+      providers:[ {ComponentFixtureAutoDetect, useValue:true}]
+      });
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    h1 = fixture.nativeElement.querySelector('h1');
   });
 
-  // [TODO] Fix Test 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(HeaderComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   console.log(compiled);
-  //   console.log(compiled.querySelector('h1'));
-  //   expect(compiled.querySelector('div div h1').textContent).toEqual('Experity Code Challenge');
-  // });
+  it('should create', () => {
+    expect(component).toBeDefined();
+  });
+
+  it('no title in the DOM after createComponent()', () => {
+    expect(h1.textContent).toEqual('');
+  });
+
+  it('should contain title', () => {
+    component.headerText = "Experity Code Challenge";
+    fixture.detectChanges();
+    expect(h1.textContent).toContain(component.headerText);
+  });
 });

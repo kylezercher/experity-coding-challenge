@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IEventType, EventType } from '../models/event';
+import { IEventType, EventType } from '../models/eventType';
 import { Rule } from '../models/rule';
-
-const defaultEvent1 = new EventType("Register", 1, 100, [
-  new Rule(3, "Register"),
-  new Rule(5, "Patient")]
-)
-const defaultEvent2 = new EventType("Diagnose", 1, 100, [
-  new Rule(2, "Diagnose"),
-  new Rule(7, "Patient")]
-)
-
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-event-submitter',
@@ -21,14 +12,17 @@ const defaultEvent2 = new EventType("Diagnose", 1, 100, [
 export class EventSubmitterComponent implements OnInit {
   numberArray: Array<string>;
   selectedEvent: EventType;
-  eventSelection:Array<EventType>;
+  eventSelection: Array<EventType>;
 
-  constructor() {
-    this.eventSelection = [];
-    this.eventSelection.push(defaultEvent1, defaultEvent2);
+  constructor(private eventService: EventService) {
+    this.eventSelection = this.eventService.eventArray
   }
 
   ngOnInit(): void {
+  }
+
+  uploadEventType(selectedEvent){
+    this.eventService.post(selectedEvent);
   }
 
 }
