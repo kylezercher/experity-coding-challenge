@@ -46,3 +46,25 @@ If you wish to impress, adding flexibility to your program is an option:
 
 - Use of unit tests (jasmine / karma) is nice.
 - Anything you can think of to make an interesting and useful design addition to the program, just create a document outlining the design addition and why you chose to implement it and submit it with your program.
+
+
+# Dependencies 
+
+Node -v 12.18.3 or (LTS)
+npm -v 6.14.6
+
+
+# How to Run
+Open up project directory (experity-coding-challenge)
+```
+npm install
+ng serve 
+```
+open localhost:<port> default port is 4200
+
+# How to test
+Open up project directory (experity-coding-challenge)
+```
+ng test
+```
+
