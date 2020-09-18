@@ -1,7 +1,7 @@
-import { trigger } from '@angular/animations';
 import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { EventSubmitterComponent } from './event-submitter.component';
 
@@ -16,7 +16,7 @@ describe('EventSubmitterComponent', () => {
       providers: [
         { provide: ComponentFixtureAutoDetect, useValue: true }
       ],
-      imports: [SharedModule],
+      imports: [HttpClientTestingModule,SharedModule],
     })
       .compileComponents();
   });

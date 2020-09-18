@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IEventType, EventType } from '../models/eventType';
-import { Rule } from '../models/rule';
+import { EventType } from '../models/eventType';
 import { EventService } from '../services/event.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class EventSubmitterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  uploadEventType(selectedEvent){
+  uploadEventType(selectedEvent:EventType){
     this.eventService.post(selectedEvent);
   }
 

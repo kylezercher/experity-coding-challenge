@@ -32,11 +32,11 @@ export class EventService {
   }
 
   get eventArray() {
-    return this._eventArray
+    return this._eventArray;
   }
 
   set eventArray(newArray) {
-    this._eventArray = newArray
+    this._eventArray = newArray;
   }
 
   addEventType(newEvent: EventType) {
@@ -47,7 +47,7 @@ export class EventService {
     this.http.post(this.url, JSON.stringify(event), this.headers).subscribe(
       data => {console.log(data)},
       err => {
-        alert(`Error. \nMessage: ${err.message}`)
+        alert(`This is a Dummy Error`)
       }
     )
   }
